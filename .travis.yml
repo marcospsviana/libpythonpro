@@ -1,11 +1,17 @@
+sudo: false
 language: python
 python:
   - 3.9
 install:
-  - pip install -q pipenv codecov
+  - pip install -q pipenv -r requirements-dev.txt codecov
   - pipenv sync --dev
 script:
   - flake8
+<<<<<<< HEAD
   - pytest libpythonpro --testepytest=libpythonpro
 after_success:
+=======
+  - pytest libpythonpro --cov=libpythonpro
+after_successpyt:
+>>>>>>> 0e04cd5c6fdbf89a17d008e04a5ac88879c2a8f2
   - codecov
